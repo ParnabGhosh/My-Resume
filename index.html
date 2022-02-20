@@ -1,0 +1,584 @@
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>My Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        div.a{
+            text-align: center;
+            color: aquamarine;
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight:lighter;
+            text-decoration:none;
+            text-shadow: 1.5px 1.5px; 
+        }
+
+        div.b{
+            color:blanchedalmond;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 20px;
+        }
+
+        div.c{
+            text-align: center;
+            padding:3%;
+            background-color: lightcoral;
+        }
+        
+        div.d{
+            overflow:overlay;
+            text-align: center;
+            color:lightgreen;
+            font-size:medium;
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-shadow: 0px 0px;
+        }
+
+        div.e{
+            color:lightslategray;
+        }
+
+        div.f{
+            text-align: center;
+            color:midnightblue;
+        }
+
+        div.g{
+            padding: 10%;
+            color:palevioletred;
+            text-align: center;
+        }
+
+        .topnav{
+            overflow:hidden;
+            background-color:rgb(204, 218, 216);
+        }
+
+        .topnav a{
+            float:left;
+            display:block;
+            color:#F50856;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover{
+            background-color:#FFA9C5;
+            color:#133efc;
+        }
+
+        .topnav a.active{
+            background-color: #04AA6E;
+            color:white;
+        }
+        
+        .topnav .icon{
+            display:none;
+        }
+        @media screen and (max-width: 600px){
+            .topnav a:not(:first-child){display:none;}
+            .topnav a.icon{
+                float:right;
+                display:block;
+            }
+        }
+
+        @media screen and (max-width:600px){
+            .topnav .responsive{position:relative;}
+            .topnav .responsive .icon{
+                float:none;
+                display:block;
+                text-align:left;
+            }
+        }
+
+        .accordion{
+            background-color: transparent;
+            color:rgb(236, 181, 129);
+            cursor:pointer;
+            padding:18px;
+            width: 100%;
+            border:#03BB70;
+            text-align:right;
+            outline: none;
+            font-size: 18px;
+            transition: 0.4s;
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+
+        .active, .accordion:hover{
+            background-color: rgb(63, 21, 141);
+        }
+        .panel{
+            padding: 0 18px;
+            display:none;
+            background-color: rgb(145, 139, 175);
+            text-align: right;
+            overflow: overlay;
+        }
+
+        #mydiv{
+            width: 100%;
+            padding: 30px 0;
+            text-align:left;
+            background-color: #1dd4cb;
+            margin-top:10px;
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            
+        }
+        #yourdiv{
+            width: 100%;
+            padding: 50px 0;
+            text-align: center;
+            background-color:#1DD497;
+            margin-top: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+        }
+        .container{
+            position:relative;
+            width:50%;
+        }
+
+        .Image{
+            width: 200px;
+            height: 200px;
+        }
+        .image{
+            display:block;
+            width:100%;
+            height:100%;
+        }
+
+        .overlay{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            height:200px;
+            width:200px;
+            margin:auto;
+            opacity:0;
+            transition:0.5s ease;
+            background-color:#D41D62 ;
+        }
+
+        .Image:hover .overlay{
+            opacity:1;
+        }
+        
+        .text{
+            color:whitesmoke;
+            font-size: 20px;
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform:translate(-50%, -50%);
+            -ms-transform:translate(-50%,-50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        body::before{
+            content:"";
+            height:305%;
+            width:100%;
+            position:absolute;
+            background:url("bgmine.jpg") no-repeat center/cover;
+            background-attachment: fixed;
+            z-index:-1;
+            /* Margin: 0px; */
+        }
+
+        .tab{
+            overflow:overlay;
+            border: 1px solid #FFA9C5;
+            background-color:black;
+            text-align:center;
+            text-shadow: 1.5px 1.5px;
+        }
+
+        .tab button{
+            background-color:inherit;
+            border:outset;
+            outline:none;
+            cursor:pointer;
+            padding:14px 16px;
+            transition: 0.3s;
+            font-size:25px;
+            font-family:fantasy;
+            color:cadetblue;
+        }
+
+        .tab button.active {
+            background-color:grey;
+        }
+
+        .tabcontent {
+            display:none;
+            padding: 5px 10px;
+            border: 1px solid gray;
+            border-top: ridge;
+        }
+
+        .fa:hover{
+            opacity: 0.5;
+        }
+
+        .fa-facebook{
+            background:#175DF2 ;
+            color:whitesmoke;
+        }
+
+        .fa-instagram{
+            background:#E5116E;
+            color:whitesmoke;
+        }
+
+        .fa-linkedin{
+            background:#7FB0F7;
+            color:whitesmoke;
+        }
+
+        .fa-github{
+            background:#5C25EE;
+            color:whitesmoke;
+        }
+
+        .sidenav{
+            height:100%;
+            width:0;
+            position:fixed;
+            z-index:1;
+            top:0;
+            left:0;
+            background-color:rgb(70, 37, 70);
+            overflow-x:hidden;
+            transition:0.5s;
+            padding-top:62px;
+        }
+
+        .sidenav a{
+            padding: 16px 16px 16px 25px;
+            text-decoration:none;
+            text-align:center;
+            font-size:50px;
+            color:whitesmoke;
+            display:block;
+            transition:0.4s;
+        }
+
+        .sidenav a:hover{
+            color:#D9CFF2;
+        }
+
+        .sidenav .closebtn{
+            position:absolute;
+            top:0;
+            right:20px;
+            font-size:27px;
+            margin-left: 50px;
+        }
+
+        p{
+            color:rgb(173, 238, 218);
+            font-size: 22px;
+            text-indent:20%;
+        }
+        h1{
+            color:rgb(128, 240, 214);
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-shadow:0.7px 0.7px;
+            text-align:center;
+            font-size: 45px;
+        }
+
+        h2{
+            text-decoration:none;
+            font-family: sans-serif;
+        }
+        @media screen and (max-height:420px){
+            .sidenav {padding-top:15px;}
+            .sidenav a {font-size:16px}
+        }
+        .cursor-1{
+                position: absolute;
+                top:500px;left:500px;
+                height: 1rem;width:1rem;
+                background: var(--main-color);
+                pointer-events: none;
+                transform: translate(-50%,-50%);
+                border-radius:50%
+                z-index:10000;
+            }
+            .cursor-2{
+                position: absolute;
+                top:500px;left:500px;
+                height: 4rem;width:4rem;
+                border: .1rem solid var(--main-color);
+                pointer-events: none;
+                transform: translate(-50%,-50%);
+                border-radius:50%
+                z-index:10000;
+                transition:.3s linear;
+            }
+    </style>
+  </head>
+
+<body>
+
+  <div class="topnav" id="myTopnav">
+    <a href="#home" class="active">HOME</a>
+    <a href="#edu">EDUCATION</a>
+    <a href="#activity">ACTIVITIES</a>
+    <a href="#about">PERSONAL INFO</a>
+    <a href="#contact">CONTACT</a>
+    <a href="javascript:void(0);" class="icon" onclick="yesFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+
+
+  <center>
+    <div class="container">
+      <div class="Image">
+        <img src="69420.jpg" class="image">
+        <div class="overlay">
+          <h1 class="text">Hello there!!</h1>
+        </div>
+      </div>
+    </div>
+  </center>
+  <div class="a">
+    <h2>I AM PARNAB GHOSH</h2>
+  </div>
+
+  
+  <h1 id="home">About Me</h1>
+  <p><i>I am a student currently pursuing B.Tech in Electronics and Communication Engineering from St. Thomas' College of Engineering and Technology. I am optimistic about teamwork and adjusting myself to environment for the betterment of the objective. I am open to listen and learning as well as to criticism. I like to explore and learn new things and skills, and when necessary I am willing to give my all. I will keep trying to upgrade myself with updates of time.</i></p>
+
+   <div id="edu">
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'Academic Credentials')">ACADEMICS</button>
+    <button class="tablinks" onclick="openCity(event, 'Areas Of Interest')">FIELDS OF INTEREST</button>
+    <button class="tablinks" onclick="openCity(event, 'Awards')">AWARDS</button>
+   </div>
+   
+  <div id="Academic Credentials" class="tabcontent">
+     <p>
+         <ul>
+           <div class="e">
+             <li><h2>B.Tech</h2></li>
+             </div>
+             <ul>
+                 <div class="b">
+                 <li><b><span>College-</span>  St. Thomas' College of Engineering and Technology</b></li>
+                 <li><b><span>Stream-</span>  Electronics and Communication Engineering</b></li>
+                 <li><b><span>Span-</span>  2019-2023</b></li>
+                 </div>
+             </ul>
+         </ul>
+         <ul>
+           <div class="e">
+             <li><h2>All India HS Certificate Examination</h2></li>
+             </div>
+             <ul>
+                 <div class="b">
+                 <li><b><span>School-</span> Makardaha BamaSundari Institution</b></li>
+                 <li><b><span>Span-</span>  2017-2019</b></li>
+                 </div>
+             </ul>
+         </ul>
+         <ul>
+           <div class="e">
+             <li><h2>Madhyamik Examination</h2></li>
+             </div>
+             <ul>
+                 <div class="b">
+                 <li><b><span>Scool-</span> Makardaha BamaSundari Institution</b></li>
+                 <li><b><span>Span-</span>  2011-2017</b></li>
+                 </div>
+             </ul>
+         </ul>
+     </p>
+   </div>
+   
+   <div id="Areas Of Interest" class="tabcontent">
+     <p>
+         <ul>
+             <div class="b">
+                 <li><b>Basics Of C Programming</b></li>
+                 <li><b>Data Structures And Algorithm</b></li>
+                 <li><b>Basics Of Python</b></li>
+                 <li><b>HTML / CSS</b></li>
+                 <li><b>Digital System Design</b></li>
+             </div>
+         </ul>
+     </p> 
+   </div>
+   
+   <div id="Awards" class="tabcontent">
+     <p>
+         <ol>
+             <div class="b">
+                <li><b>Acquired 1st in a Summer Workshop on ‘Embedded Systems And IOT’ organized by St. Thomas' College of Engineering And Technology (August, 2021)</b></li>
+             </div>
+         </ol>
+     </p>
+   </div>
+  </div>
+
+  <div id="activity">
+   <div class="c">
+    <button onclick="myFunction()">CO CURRICULAR ACTIVITIES</button>
+    </div>
+    <div id="mydiv">
+    <ul>
+        <li><b>Undergone training in 'Python:Basics And Beyond' by Nullstack Technologies (December, 2021-January, 2022).</b></li>
+        <li><b>Participated in a Workshop on 'Machine Learning And Data Analytics' organized by St. Thomas' College of Engineering And Technology (September, 2021).</b></li>
+        <li><b>Participated in a Summer Workshop on ‘Embedded Systems And IOT’ organized by St. Thomas' College of Engineering And Technology (August, 2021).</b></li>
+        <li><b>Participated in a Webinar on ‘World No Tobacco Day’ organized by the Red Ribbon Club(NSS Cell) (June, 2021).</b></li>
+        <li><b>Participated in a Webinar on 'Innovations in Internet Of Things' organized by St. Thomas' College of Engineering And Technology (May, 2021).</b></li>
+        <li><b>Participated in BSNL Vocational Training organised by St. Thomas' College of Engineering And Technology (Feb, 2022)</b></li>
+    </ul>
+    </div>
+    
+    </div>
+
+    <div id="about">
+    <div class="d">
+      <h2>PERSONAL INFO</h2>
+      </div>
+      
+      <button class="accordion">DATE OF BIRTH</button>
+      <div class="panel">
+        <p><b><i>2nd April, 2001</i></b></p>
+      </div>
+      
+      <button class="accordion">ADDRESS</button>
+      <div class="panel">
+       <p><b><i>Katlia, Ankurhati, Howrah-711409</i></b></p>
+      </div>
+      
+      <button class="accordion">MY HOBBIES</button>
+      <div class="panel">
+        <p><b><i>Playing outdoor and indoor games, Taking pictures, Video games, Story books and manga, Crafting</i></b></p>
+      </div>
+      
+      <button class="accordion">LANGUAGES KNOWN</button>
+      <div class="panel">
+        <p><b><i>ENGLISH, BENGALI, HINDI</i></b></p>
+      </div>
+      </div>
+
+      <div id="contact">
+      <div class="a">
+      <h2>CONTACT</h2>
+      </div>
+      <div class="f">
+      <p>Mobile No.- 9123643609 </p>
+      <p>
+        Email Id-<a href="mailto:ghoshparnab7004@gmail.com">ghoshparnab7004@gmail.com</a>
+      </p>
+      </div>
+
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <p><p><a href="https://www.facebook.com/ghosh.parnab/" class="fa fa-facebook"></a></p></p>
+        <p><p><a href="https://instagram.com/parnabg801?utm_medium=copy_link" class="fa fa-instagram"></a></p></p>
+        <p><p><a href="https://www.linkedin.com/in/parnab-ghosh-480344232/" class="fa fa-linkedin"></a></p></p>
+        <p><p><a href="https://github.com/ParnabGhosh" class="fa fa-github"></a></p></p>
+        
+      </div>
+      <div class="g">
+      <span style="font-size:50px;font-cursor:pointer" onclick="openNav()">&#9776; Social Media</span>
+      </div>
+      </div>
+      
+   <script>
+
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+
+    function myFunction() {
+  var x = document.getElementById("mydiv");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function yourFunction() {
+  var x = document.getElementById("yourdiv");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+let cursor1 = document.querySelector('.cursor-1');
+let cursor2 = document.querySelector('.cursor-2');
+window.onmousemove = (e) =>{
+cursor1.style.top = e.pageY + 'px';
+cursor1.style.left = e.pageX + 'px';
+cursor2.style.left = e.pageY + 'px';
+cursor2.style.left = e.pageX + 'px';
+}
+
+
+  </script>
+</body>
+
+</html>
